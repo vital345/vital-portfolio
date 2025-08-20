@@ -115,10 +115,10 @@ const Navbar = () => {
         {/* Nav items */}
         <div
           ref={navLinkRef}
-          className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl"
+          className="flex flex-col text-5xl gap-y-3 md:text-6xl lg:text-8xl"
         >
           {NAV_ITEMS.map((navItem) => (
-            <a href={`#${navItem.id}`} key={navItem.id}>
+            <a className="font-black" href={`#${navItem.id}`} key={navItem.id}>
               {navItem.title}
             </a>
           ))}

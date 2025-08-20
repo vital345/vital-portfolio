@@ -9,3 +9,63 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.marquee-verticle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 60px;
+  flex: 1;
+}
+
+@keyframes marquee-verticle {
+  from {
+    transform: rotate(-90deg) translateX(-10%);
+  }
+  to {
+    transform: rotate(-90deg) translateX(-50%);
+  }
+}
+
+.track-verticle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  left: 24px;
+  bottom: 48px;
+  white-space: nowrap;
+  will-change: transform;
+  transform-origin: left;
+  transform: rotate(-90deg) translateX(-10%);
+  animation: marquee-verticle 40s linear infinite;
+}
+
+.marquee-text {
+  /* font-weight: 500; */
+  margin-right: 44px;
+  white-space: nowrap;
+  line-height: 78px;
+}
+
+.verticle-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: sideways-rl;
+}
+
+.verticle-mode::after {
+  content: "";
+  margin-top: 10px;
+  display: block;
+  height: 150px;
+  width: 3px;
+  background-color: #000;
+}
