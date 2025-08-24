@@ -3,6 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
+import BangaloreHoverCard from "../MapCard";
 import Marquee from "../Marquee";
 import { SCRAMBLING_CHARS } from "./constants";
 import Footer from "./Footer";
@@ -48,21 +49,23 @@ const Introduction = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative text-white h-svh w-svw">
       <Marquee />
-      <div className="min-h-screen min-w-screen inset-0 bg-[url('/background.png')] bg-cover bg-center filter brightness-200 contrast-50 opacity-50"></div>
-      <div className="p-20 lg:p-60 flex flex-col md:p-40 absolute top-0 left-0">
+      <div className="p-10 pt-20 lg:p-25 h-full flex flex-col md:p-25 absolute top-0 left-0 justify-between">
         <div
           ref={introContentRef}
-          className="intro-details flex flex-col gap-y-6 overflow-x-hidden"
+          className="intro-details flex flex-col gap-y-4 overflow-x-hidden"
         >
-          <p className="text-2xl">Hi, my name is</p>
-          <p className="font-black text-5xl md:text-6xl lg:text-9xl uppercase">
+          <p className="text-[16px]">Hi, I am</p>
+          <p className="font-black text-6xl md:text-7xl lg:text-9xl uppercase">
             Vital.
           </p>
-          <p className="font-semibold text-3xl md:text-3xl lg:text-4xl leading-normal lg:w-3xl ">
+          <p className="font-semibold text-1xl w-full md:text-2xl lg:text-2xl leading-normal lg:w-2xl md:w-2xl">
             I build scalable, pixel-perfect web apps with React & TypeScript.
           </p>
+        </div>
+        <div className="">
+          <BangaloreHoverCard />
         </div>
       </div>
       <Footer />

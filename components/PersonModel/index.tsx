@@ -45,7 +45,7 @@ export function PersonModel(props: JSX.IntrinsicElements["group"]) {
   const leftEyeRef = useRef<THREE.SkinnedMesh>(null);
   const rightEyeRef = useRef<THREE.SkinnedMesh>(null);
 
-  const { mouse } = useThree();
+  const { pointer: mouse } = useThree();
 
   function isBone(obj: THREE.Object3D): obj is THREE.Bone {
     return (obj as THREE.Bone).isBone === true;
@@ -62,7 +62,7 @@ export function PersonModel(props: JSX.IntrinsicElements["group"]) {
     }
   }, [nodes]);
 
-  useFrame(({ clock }) => {
+  useFrame(() => {
     if (headRef.current) {
       const targetX = THREE.MathUtils.lerp(
         headRef.current.rotation.y,

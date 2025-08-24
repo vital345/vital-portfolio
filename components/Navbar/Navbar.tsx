@@ -115,7 +115,7 @@ const Navbar = () => {
         {/* Nav items */}
         <div
           ref={navLinkRef}
-          className="flex flex-col text-5xl gap-y-3 md:text-6xl lg:text-8xl"
+          className="flex flex-col text-4xl gap-y-3 md:text-6xl lg:text-8xl"
         >
           {NAV_ITEMS.map((navItem) => (
             <a className="font-black" href={`#${navItem.id}`} key={navItem.id}>
@@ -152,7 +152,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-gray-900 rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
         onClick={toggleMenu}
         style={
           showNavBurger
