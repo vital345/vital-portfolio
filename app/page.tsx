@@ -33,7 +33,7 @@ export default function Home() {
 
   if (!isReady) {
     return (
-      <div className="h-screen w-ecreen flex items-center justify-center bg-gray-900">
+      <div className="h-screen w-ecreen flex items-center justify-center bg-gray-950/98">
         <LoaderOne />
       </div>
     );
