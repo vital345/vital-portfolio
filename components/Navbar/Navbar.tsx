@@ -3,7 +3,6 @@
 import { EMAIL } from "@/lib/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { NAV_ITEMS, SOCIALS } from "./constants";
 
@@ -124,14 +123,20 @@ const Navbar = () => {
           className="flex flex-col text-4xl gap-y-3 md:text-6xl lg:text-8xl"
         >
           {NAV_ITEMS.map((navItem) => (
-            <Link
+            <a
               className="font-black"
               href={`#${navItem.id}`}
               key={navItem.id}
-              onClick={closeNavMenu}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(navItem.id)?.scrollIntoView({
+                  behavior: "smooth",
+                });
+                closeNavMenu();
+              }}
             >
               {navItem.title}
-            </Link>
+            </a>
           ))}
         </div>
         {/* contact info */}

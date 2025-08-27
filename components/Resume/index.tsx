@@ -21,13 +21,12 @@ export default function ResumeSection() {
           </a>
         </div>
       </div>
-      <div className="mt-8 md:mt-0 flex items-center justify-center">
+      <div className="hidden md:flex mt-8 md:mt-0 items-center justify-center">
         <div className="rounded-xl shadow-sm p-4 w-[400px] h-[600px] md:w-[640px] md:h-[800px] flex items-center justify-center">
-          <embed
+          <iframe
             src="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
-            type="application/pdf"
             className="w-full h-full rounded-lg"
-          />
+          ></iframe>
         </div>
       </div>
     </section>
