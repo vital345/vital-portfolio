@@ -9,23 +9,23 @@ const Contact = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertType, setAlertType] = useState("success");
-  const [alertMessage, setAlertMessage] = useState("");
+  // const [showAlert, setShowAlert] = useState(false);
+  // const [alertType, setAlertType] = useState("success");
+  // const [alertMessage, setAlertMessage] = useState("");
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const showAlertMessage = (type: string, message: string) => {
-    setAlertType(type);
-    setAlertMessage(message);
-    setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 5000);
-  };
+  // const showAlertMessage = (type: string, message: string) => {
+  //   setAlertType(type);
+  //   setAlertMessage(message);
+  //   setShowAlert(true);
+  //   setTimeout(() => {
+  //     setShowAlert(false);
+  //   }, 5000);
+  // };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,17 +47,20 @@ const Contact = () => {
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
+      // showAlertMessage("success", "You message has been sent!");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
+      // showAlertMessage("danger", "Somthing went wrong!");
     }
   };
 
   return (
     <>
-      <div className="mt-10 flex flex-col justify-center items-center px-6 gap-y-4">
+      <div
+        className="mt-10 flex flex-col justify-center items-center px-6 gap-y-4"
+        id={"contact"}
+      >
         <p className="text-4xl font-bold text-center">
           Interested in Working With Me?
         </p>

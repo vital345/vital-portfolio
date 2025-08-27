@@ -49,7 +49,7 @@ const Introduction = () => {
   }, []);
 
   return (
-    <div className="relative text-white h-full w-full">
+    <div className="relative text-white h-full w-full" id={"introduction"}>
       <Marquee />
       <div className="p-10 pt-20 lg:p-25 h-full flex flex-col md:p-25 absolute top-0 left-0 justify-between">
         <div

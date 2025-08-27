@@ -1,7 +1,7 @@
 import { GITHUB_URL, LINKED_IN_URL } from "@/lib/constants";
 
 export const NAV_ITEMS = [
-  { title: "introduction", id: "/" },
+  { title: "introduction", id: "introduction" },
   { title: "experience", id: "experience" },
   { title: "contact", id: "contact" },
 ];

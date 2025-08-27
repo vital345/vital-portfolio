@@ -126,7 +126,7 @@ const Navbar = () => {
           {NAV_ITEMS.map((navItem) => (
             <Link
               className="font-black"
-              href={`${navItem.id}`}
+              href={`#${navItem.id}`}
               key={navItem.id}
               onClick={closeNavMenu}
             >
