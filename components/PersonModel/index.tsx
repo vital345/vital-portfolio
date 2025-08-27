@@ -45,6 +45,7 @@ export function PersonModel(props: JSX.IntrinsicElements["group"]) {
   const leftEyeRef = useRef<THREE.SkinnedMesh>(null);
   const rightEyeRef = useRef<THREE.SkinnedMesh>(null);
 
+  const { size } = useThree();
   const { pointer: mouse } = useThree();
 
   function isBone(obj: THREE.Object3D): obj is THREE.Bone {
@@ -62,22 +63,40 @@ export function PersonModel(props: JSX.IntrinsicElements["group"]) {
     }
   }, [nodes]);
 
+  const touchRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    function handleTouchMove(e: TouchEvent) {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        // normalize to -1 .. 1 like mouse.x/y
+        touchRef.current.x = (touch.clientX / size.width) * 2 - 1;
+        touchRef.current.y = -(touch.clientY / size.height) * 2 + 1;
+      }
+    }
+
+    window.addEventListener("touchmove", handleTouchMove);
+    return () => window.removeEventListener("touchmove", handleTouchMove);
+  }, [size]);
+
   useFrame(() => {
     if (headRef.current) {
+      const inputX = size.width < 768 ? touchRef.current.x : mouse.x;
+      const inputY = size.width < 768 ? touchRef.current.y : mouse.y;
+
       const targetX = THREE.MathUtils.lerp(
         headRef.current.rotation.y,
-        mouse.x * 0.5, // left/right
+        inputX * 0.5,
         0.1
       );
       const targetY = THREE.MathUtils.lerp(
         headRef.current.rotation.x,
-        -mouse.y * 0.5, // up/down
+        -inputY * 0.5,
         0.1
       );
 
-      // clamp rotation: X = up/down, Y = left/right
-      const clampedX = THREE.MathUtils.clamp(targetY, -0.4, 0.4); // about -23° to +23°
-      const clampedY = THREE.MathUtils.clamp(targetX, -0.6, 0.6); // about -34° to +34°
+      const clampedX = THREE.MathUtils.clamp(targetY, -0.4, 0.4);
+      const clampedY = THREE.MathUtils.clamp(targetX, -0.6, 0.6);
 
       headRef.current.rotation.x = clampedX;
       headRef.current.rotation.y = clampedY;
