@@ -1,5 +1,6 @@
 "use client";
 
+import { EMAIL } from "@/lib/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
@@ -140,9 +141,12 @@ const Navbar = () => {
         >
           <div className="font-light">
             <p className="tracking-wide text-white/50">EMAIL</p>
-            <p className="text-xl tracking-widest lowercase text-pretty">
-              vittalupadhyaya@gmail.com
-            </p>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="text-xl tracking-widest lowercase text-pretty"
+            >
+              {EMAIL}
+            </a>
           </div>
 
           <div className="font-light">

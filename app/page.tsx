@@ -1,7 +1,11 @@
 "use client";
 
+import ContactMe from "@/components/Contact";
 import Introduction from "@/components/Introduction";
 import { PersonModel } from "@/components/PersonModel";
+import ResumeSection from "@/components/Resume";
+import { Timeline } from "@/components/ui/timeline";
+import { TIMELINE_DATA } from "@/components/ui/TimeLineData";
 import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import { ScrambleTextPlugin, ScrollTrigger, SplitText } from "gsap/all";
@@ -18,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative h-screen w-screen bg-gray-900 overflow-hidden">
+      <div className="relative h-screen w-ecreen bg-gray-900 overflow-hidden">
         <Canvas shadows camera={{ position: [0, 0, 0], fov: 30 }}>
           <ambientLight intensity={1} />
           <pointLight position={[0.5, 0, 0]} intensity={0.75} />
@@ -30,8 +34,13 @@ export default function Home() {
           />
         </Canvas>
       </div>
-      <div className="absolute top-0 left-0 pointer-events-none uppercase overflow-x-hidden">
+      <div className="absolute top-0 left-0 bottom-0 right-0 pointer-events-none uppercase overflow-x-hidden">
         <Introduction />
+      </div>
+      <div className="bg-gray-950 text-white w-full">
+        <Timeline data={TIMELINE_DATA} />
+        <ResumeSection />
+        <ContactMe />
       </div>
     </>
   );

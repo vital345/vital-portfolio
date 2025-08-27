@@ -21,7 +21,7 @@ const getTimeLineData = ({
       className="bg-gray-950 text-white rounded-2xl shadow-md p-6 flex flex-col gap-6"
     >
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-y-2">
         <div className="flex">
           <a
             href={company.link}
@@ -32,7 +32,7 @@ const getTimeLineData = ({
             {company.name}
           </a>
         </div>
-        <p className="text-sm font-semibold bg-gray-800 px-3 py-1 rounded-md">
+        <p className="text-sm font-semibold bg-gray-800 px-3 py-2 md:py-1 rounded-md w-fit">
           {duration}
         </p>
       </div>

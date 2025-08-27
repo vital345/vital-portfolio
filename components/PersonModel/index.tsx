@@ -75,8 +75,12 @@ export function PersonModel(props: JSX.IntrinsicElements["group"]) {
         0.1
       );
 
-      headRef.current.rotation.y = targetX;
-      headRef.current.rotation.x = targetY;
+      // clamp rotation: X = up/down, Y = left/right
+      const clampedX = THREE.MathUtils.clamp(targetY, -0.4, 0.4); // about -23° to +23°
+      const clampedY = THREE.MathUtils.clamp(targetX, -0.6, 0.6); // about -34° to +34°
+
+      headRef.current.rotation.x = clampedX;
+      headRef.current.rotation.y = clampedY;
     }
   });
 
