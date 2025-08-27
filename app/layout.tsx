@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar/Navbar";
 import gsap from "gsap";
 import { ScrambleTextPlugin, ScrollTrigger, SplitText } from "gsap/all";
 import type { Metadata } from "next";
@@ -32,7 +31,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
         {children}
       </body>
     </html>

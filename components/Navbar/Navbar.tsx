@@ -21,7 +21,6 @@ const Navbar = () => {
   useGSAP(() => {
     gsap.set(navRef.current, { xPercent: 100 });
     gsap.set([navLinkRef.current?.children, contactRef.current], {
-      opacity: 0,
       autoAlpha: 0,
       x: -20,
     });
@@ -36,7 +35,6 @@ const Navbar = () => {
       .to(
         [navLinkRef.current!.children],
         {
-          opacity: 1,
           autoAlpha: 1,
           x: 0,
           stagger: 0.4,
