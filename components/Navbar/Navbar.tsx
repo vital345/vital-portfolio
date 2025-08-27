@@ -2,6 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { NAV_ITEMS, SOCIALS } from "./constants";
 
@@ -94,11 +95,15 @@ const Navbar = () => {
     };
   }, []);
 
+  const closeNavMenu = () => {
+    setMenuExpanded(false);
+    navTimeLineRef.current?.reverse();
+    hamburgerTimeLineRef.current?.reverse();
+  };
+
   const toggleMenu = () => {
     if (menuExpanded) {
-      setMenuExpanded(false);
-      navTimeLineRef.current?.reverse();
-      hamburgerTimeLineRef.current?.reverse();
+      closeNavMenu();
     } else {
       setMenuExpanded(true);
       navTimeLineRef.current?.play();
@@ -118,9 +123,14 @@ const Navbar = () => {
           className="flex flex-col text-4xl gap-y-3 md:text-6xl lg:text-8xl"
         >
           {NAV_ITEMS.map((navItem) => (
-            <a className="font-black" href={`#${navItem.id}`} key={navItem.id}>
+            <Link
+              className="font-black"
+              href={`${navItem.id}`}
+              key={navItem.id}
+              onClick={closeNavMenu}
+            >
               {navItem.title}
-            </a>
+            </Link>
           ))}
         </div>
         {/* contact info */}

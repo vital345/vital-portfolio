@@ -5,35 +5,66 @@ const getTimeLineData = ({
   duration,
   location,
   description,
+  company,
 }: {
   duration: string;
   location: string;
   description: string[];
+  company: {
+    name: string;
+    link: string;
+  };
 }) => {
   return (
-    <div className="text-white text-pretty tracking-wide flex flex-col gap-y-4">
-      <div className="flex items-center">
-        <p className="mr-4 font-extrabold text-[24px] uppercase">Duration:</p>
-        <p className="text-[12px] font-bold border-1 p-2 rounded-[5px]">
+    <div
+      key={duration}
+      className="bg-gray-950 text-white rounded-2xl shadow-md p-6 flex flex-col gap-6"
+    >
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex">
+          <a
+            href={company.link}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:underline text-white font-bold text-2xl"
+          >
+            {company.name}
+          </a>
+        </div>
+        <p className="text-sm font-semibold bg-gray-800 px-3 py-1 rounded-md">
           {duration}
         </p>
       </div>
-      <div className="flex">
-        <div className="mr-4 font-medium flex gap-x-2">
-          <div className="flex">
-            <MapPin />
-          </div>
-          <div>Location:</div>
+
+      {/* Sub Info */}
+      <div className="flex flex-col gap-2 text-sm text-gray-300">
+        {/* <div className="flex items-center gap-2">
+          <Building size={16} />
+          <a
+            href={company.link}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:underline text-white"
+          >
+            {company.name}
+          </a>
+        </div> */}
+        <div className="flex items-center gap-2">
+          <MapPin size={16} />
+          <span>{location}</span>
         </div>
-        <p className="underline">{location}</p>
       </div>
-      <ul className="list-disc leading-loose flex flex-col gap-4 pl-5">
-        {description.map((item, idx) => (
-          <li key={idx} className="leading-normal">
-            {item}
-          </li>
-        ))}
-      </ul>
+
+      {/* Contributions */}
+      <div>
+        <h4 className="font-semibold text-lg mb-2">Key Contributions</h4>
+        <ul className="list-disc flex flex-col gap-2 text-gray-200">
+          {description.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
@@ -50,6 +81,7 @@ export const TIMELINE_DATA: TimelineEntry[] = [
         "Built a mutual fund screening application using React.js to provide actionable insights to users.",
         "Developed REST APIs with Java Spring Boot and integrated them with MySQL databases for efficient back-end operations.",
       ],
+      company: { name: "HashedIn by Deloitte", link: "https://hashedin.com/" },
     }),
   },
   {
@@ -65,6 +97,7 @@ export const TIMELINE_DATA: TimelineEntry[] = [
         "Worked with TypeScript, Redux, and HTML/CSS to deliver scalable front-end solutions.",
         "Unit testing and manual testing were performed to ensure robust and bug-free releases.",
       ],
+      company: { name: "HashedIn by Deloitte", link: "https://hashedin.com/" },
     }),
   },
   {
@@ -80,6 +113,7 @@ export const TIMELINE_DATA: TimelineEntry[] = [
         "Wrote and maintained Jest test cases, achieving 90% code coverage and enhancing overall code quality.",
         "Integrated a GenAI-powered tool that reduced the evaluation time of evaluators by 75%, significantly improving efficiency.",
       ],
+      company: { name: "HashedIn by Deloitte", link: "https://hashedin.com/" },
     }),
   },
 ];

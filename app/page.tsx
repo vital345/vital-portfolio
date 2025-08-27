@@ -25,7 +25,7 @@ export default function Home() {
           <pointLight position={[-0.5, 0, 0]} intensity={0.75} />
           <pointLight position={[0, 2, -1.3]} intensity={1} />
           <PersonModel
-            position={isMobile ? [0, -0.93, -0.7] : [0, -1.35, -0.7]}
+            position={isMobile ? [0, -0.93, -0.7] : [0, -1.33, -0.7]}
             scale={isMobile ? 0.5 : 0.76}
           />
         </Canvas>
