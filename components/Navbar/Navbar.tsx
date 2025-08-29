@@ -97,7 +97,7 @@ const Navbar = () => {
         {/* Nav items */}
         <div
           ref={navLinkRef}
-          className="flex flex-col text-4xl gap-y-3 md:text-6xl lg:text-7xl"
+          className="flex flex-col text-4xl gap-y-3 md:text-5xl lg:text-6xl"
         >
           {NAV_ITEMS.map((navItem) => (
             <a
