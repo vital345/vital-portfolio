@@ -3,20 +3,18 @@
 import { EMAIL } from "@/lib/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { NAV_ITEMS, SOCIALS } from "./constants";
 
 const Navbar = () => {
   const navRef = useRef<HTMLElement | null>(null);
+  const isMenuExpanded = useRef<boolean>(false);
   const navLinkRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
   const hamburgerIconRef = useRef<HTMLDivElement | null>(null);
 
   const navTimeLineRef = useRef<gsap.core.Timeline | null>(null);
   const hamburgerTimeLineRef = useRef<gsap.core.Timeline | null>(null);
-
-  const [menuExpanded, setMenuExpanded] = useState(false);
-  const [showNavBurger, setShowNavBurger] = useState(true);
 
   useGSAP(() => {
     gsap.set(navRef.current, { xPercent: 100 });
@@ -74,36 +72,17 @@ const Navbar = () => {
       );
   }, []);
 
-  useEffect(() => {
-    let lastScrollYAxis = window.scrollY;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setShowNavBurger(
-        currentScrollY <= lastScrollYAxis || currentScrollY < 10
-      );
-      lastScrollYAxis = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const closeNavMenu = () => {
-    setMenuExpanded(false);
+    isMenuExpanded.current = false;
     navTimeLineRef.current?.reverse();
     hamburgerTimeLineRef.current?.reverse();
   };
 
   const toggleMenu = () => {
-    if (menuExpanded) {
+    if (isMenuExpanded.current) {
       closeNavMenu();
     } else {
-      setMenuExpanded(true);
+      isMenuExpanded.current = true;
       navTimeLineRef.current?.play();
       hamburgerTimeLineRef.current?.play();
     }
@@ -118,7 +97,7 @@ const Navbar = () => {
         {/* Nav items */}
         <div
           ref={navLinkRef}
-          className="flex flex-col text-4xl gap-y-3 md:text-6xl lg:text-8xl"
+          className="flex flex-col text-4xl gap-y-3 md:text-6xl lg:text-7xl"
         >
           {NAV_ITEMS.map((navItem) => (
             <a
@@ -169,13 +148,9 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+        className="fixed z-50 flex flex-col items-center justify-center gap-1 cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
         onClick={toggleMenu}
-        style={
-          showNavBurger
-            ? { clipPath: "circle(50% at 50% 50%)" }
-            : { clipPath: "circle(0% at 50% 50%)" }
-        }
+        style={{ clipPath: "circle(50% at 50% 50%)" }}
         ref={hamburgerIconRef}
       >
         <span className="block w-8 h-0.5 bg-white rounded-full origin-center"></span>

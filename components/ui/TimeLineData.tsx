@@ -71,15 +71,17 @@ const getTimeLineData = ({
 
 export const TIMELINE_DATA: TimelineEntry[] = [
   {
-    title: "Associate Engineer",
+    title: "Software Engineer II",
     content: getTimeLineData({
-      duration: "Mar 2022 - Sept 2022",
+      duration: "Jun 2024 - Present",
       location: "Bengaluru, Karnataka, India",
       description: [
-        "Completed HashedIn University, mastering a range of technologies, including Angular, React, Java, Spring Boot and Docker.",
-        "Led a team during the product development month to successfully deliver a functional prototype.",
-        "Built a mutual fund screening application using React.js to provide actionable insights to users.",
-        "Developed REST APIs with Java Spring Boot and integrated them with MySQL databases for efficient back-end operations.",
+        "Developed and deployed Generative AI (GenAI) features, utilizing advanced prompt engineering techniques.",
+        "Code reviews were performed to ensure adherence to coding standards, optimize performance, and maintain high-quality deliverables.",
+        "Improved system efficiency by reducing database calls, improving query performance, and significantly improving response times by 85%.",
+        "Identified and resolved critical bugs, boosting system reliability and tool stability.",
+        "Wrote and maintained Jest test cases, achieving 90% code coverage and enhancing overall code quality.",
+        "Integrated a GenAI-powered tool that reduced the evaluation time of evaluators by 75%, significantly improving efficiency.",
       ],
       company: { name: "HashedIn by Deloitte", link: "https://hashedin.com/" },
     }),
@@ -101,17 +103,15 @@ export const TIMELINE_DATA: TimelineEntry[] = [
     }),
   },
   {
-    title: "Software Engineer II",
+    title: "Associate Engineer",
     content: getTimeLineData({
-      duration: "Jun 2024 - Present",
+      duration: "Mar 2022 - Sept 2022",
       location: "Bengaluru, Karnataka, India",
       description: [
-        "Developed and deployed Generative AI (GenAI) features, utilizing advanced prompt engineering techniques.",
-        "Code reviews were performed to ensure adherence to coding standards, optimize performance, and maintain high-quality deliverables.",
-        "Improved system efficiency by reducing database calls, improving query performance, and significantly improving response times by 85%.",
-        "Identified and resolved critical bugs, boosting system reliability and tool stability.",
-        "Wrote and maintained Jest test cases, achieving 90% code coverage and enhancing overall code quality.",
-        "Integrated a GenAI-powered tool that reduced the evaluation time of evaluators by 75%, significantly improving efficiency.",
+        "Completed HashedIn University, mastering a range of technologies, including Angular, React, Java, Spring Boot and Docker.",
+        "Led a team during the product development month to successfully deliver a functional prototype.",
+        "Built a mutual fund screening application using React.js to provide actionable insights to users.",
+        "Developed REST APIs with Java Spring Boot and integrated them with MySQL databases for efficient back-end operations.",
       ],
       company: { name: "HashedIn by Deloitte", link: "https://hashedin.com/" },
     }),

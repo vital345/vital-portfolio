@@ -42,25 +42,27 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="relative h-screen w-ecreen bg-gray-950/98 overflow-hidden">
-        <Canvas shadows camera={{ position: [0, 0, 0], fov: 30 }}>
-          <ambientLight intensity={1} />
-          <pointLight position={[0.5, 0, 0]} intensity={0.75} />
-          <pointLight position={[-0.5, 0, 0]} intensity={0.75} />
-          <pointLight position={[0, 2, -1.3]} intensity={1} />
-          <PersonModel
-            position={isMobile ? [0, -0.93, -0.7] : [0, -1.33, -0.7]}
-            scale={isMobile ? 0.5 : 0.76}
-          />
-        </Canvas>
-      </div>
-      <div className="absolute top-0 left-0 bottom-0 right-0 pointer-events-none uppercase overflow-x-hidden">
-        <Introduction />
-      </div>
-      <div className="bg-gray-950 text-white w-full">
-        <Timeline data={TIMELINE_DATA} />
-        <ResumeSection />
-        <ContactMe />
+      <div className="">
+        <div className="relative h-screen w-ecreen bg-gray-950/98 overflow-hidden">
+          <Canvas shadows camera={{ position: [0, 0, 0], fov: 30 }}>
+            <ambientLight intensity={1} />
+            <pointLight position={[0.5, 0, 0]} intensity={0.75} />
+            <pointLight position={[-0.5, 0, 0]} intensity={0.75} />
+            <pointLight position={[0, 2, -1.3]} intensity={1} />
+            <PersonModel
+              position={isMobile ? [0, -0.93, -0.7] : [0, -1.33, -0.7]}
+              scale={isMobile ? 0.5 : 0.76}
+            />
+          </Canvas>
+        </div>
+        <div className="absolute top-0 left-0 bottom-0 right-0 pointer-events-none uppercase overflow-x-hidden">
+          <Introduction />
+        </div>
+        <div className="bg-gray-950 text-white w-full">
+          <Timeline data={TIMELINE_DATA} />
+          <ResumeSection />
+          <ContactMe />
+        </div>
       </div>
     </>
   );
